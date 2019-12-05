@@ -21,7 +21,7 @@ class SudokuGrid
 		Row GetRow(std::uint8_t index);
 		Subgrid GetSubgrid(std::uint8_t index);
 
-		const std::array<std::uint8_t, 9 * 9>& GetValues() const;
+		std::array<std::uint8_t, 9 * 9>& GetValues();
 
 		SudokuGrid& operator=(const SudokuGrid&) = default;
 		SudokuGrid& operator=(SudokuGrid&&) = default;

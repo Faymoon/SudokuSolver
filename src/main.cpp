@@ -10,7 +10,7 @@ int main()
 {
 	constexpr const std::uint8_t _ = 0;
 
-	std::array<std::uint8_t, 9 * 9> gridVals
+	std::array<std::uint8_t, 9 * 9> gridVals // To resolve
 	{
 		_, _, _, 3, 4, _, _, _, 1,
 		3, 9, 8, _, _, 6, 7, 4, _,
@@ -25,9 +25,7 @@ int main()
 
 	SudokuGrid grid(std::move(gridVals));
 
-	const auto& values = grid.GetValues();
-
-	std::array<std::uint8_t, 9 * 9> results = values;
+	std::array<std::uint8_t, 9 * 9>& results = grid.GetValues();
 
 	int i = 0;
 	for (auto r : results)
@@ -41,7 +39,7 @@ int main()
 
 	while (std::find(results.begin(), results.end(), _) != results.end())
 	{
-		for (i = 0; i < values.size(); ++i)
+		for (i = 0; i < results.size(); ++i)
 		{
 			if (results[i] > 0)
 				continue;

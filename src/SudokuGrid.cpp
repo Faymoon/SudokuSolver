@@ -28,7 +28,7 @@ SudokuGrid::Subgrid SudokuGrid::GetSubgrid(std::uint8_t index)
 	return subgrid;
 }
 
-const std::array<std::uint8_t, 9 * 9>& SudokuGrid::GetValues() const
+std::array<std::uint8_t, 9 * 9>& SudokuGrid::GetValues()
 {
 	return m_values;
 }
